@@ -18,15 +18,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #app {
   .nav {
     padding: 12px 0px;
-
     a {
       margin-right: 12px;
     }
   }
 }
-
 </style>

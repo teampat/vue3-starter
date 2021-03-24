@@ -8,15 +8,14 @@
       Composition Counter: {{counter}}
     </div>
 
-    <VueImage :src="godcode" alt="Code Meme" />
-    <vue-title />
+    <VueImage :src="logo" alt="Vue Logo" />
   </div>
 </template>
 
 <script>
 import useCounter from "../compositions/useCounter";
 import VueImage from '../components/VueImage.vue';
-import godcode from '../assets/godcode.jpg';
+import logo from '../assets/logo.png';
 
 export default {
   name: "Page2",
@@ -26,7 +25,7 @@ export default {
   setup() {
     const { counter, incrementCounter } = useCounter();
 
-    return { counter, incrementCounter, godcode };
+    return { counter, incrementCounter, logo };
   },
 }
 </script>
