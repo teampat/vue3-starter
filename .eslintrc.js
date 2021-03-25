@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
+    indent: ['error', 2],
     'prettier/prettier': [
       'warn',
       {
