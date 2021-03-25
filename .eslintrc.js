@@ -5,6 +5,7 @@ module.exports = {
     es2021: true
   },
   extends: [
+    'prettier',
     'plugin:vue/recommended',
     '@vue/prettier',
     'plugin:prettier/recommended'
@@ -14,11 +15,11 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'prettier'],
   rules: {
     indent: ['error', 2],
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         singleQuote: true,
         semi: false,
