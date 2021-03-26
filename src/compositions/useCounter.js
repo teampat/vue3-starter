@@ -1,14 +1,14 @@
-import { ref } from "vue";
+import { ref } from 'vue'
 
 export default function useCounter() {
-  const counter = ref(0);
+  const counter = ref(0)
 
   function incrementCounter() {
-    counter.value++;
+    counter.value++
   }
 
   return {
     counter,
     incrementCounter,
-  };
+  }
 }

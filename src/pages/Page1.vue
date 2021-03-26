@@ -5,26 +5,23 @@
     <div>
       <button @click="incrementCounter">Increment</button>
 
-      Store counter: {{storeCounter}}
+      Store counter: {{ storeCounter }}
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: "Page1",
-  methods: {
-    ...mapMutations(["incrementCounter"]),
-  },
+  name: 'Page1',
   computed: {
-    ...mapState(["storeCounter"]),
-  }
+    ...mapState(['storeCounter']),
+  },
+  methods: {
+    ...mapMutations(['incrementCounter']),
+  },
 }
-
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

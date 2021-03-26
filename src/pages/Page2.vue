@@ -5,7 +5,7 @@
     <div class="counter">
       <button @click="incrementCounter">Increment</button>
 
-      Composition Counter: {{counter}}
+      Composition Counter: {{ counter }}
     </div>
 
     <VueImage :src="logo" alt="Vue Logo" />
@@ -13,29 +13,27 @@
 </template>
 
 <script>
-import useCounter from "../compositions/useCounter";
-import VueImage from '../components/VueImage.vue';
-import logo from '../assets/logo.png';
+import useCounter from '../compositions/useCounter'
+import VueImage from '../components/VueImage.vue'
+import logo from '../assets/logo.png'
 
 export default {
-  name: "Page2",
+  name: 'Page2',
   components: {
     VueImage,
   },
   setup() {
-    const { counter, incrementCounter } = useCounter();
+    const { counter, incrementCounter } = useCounter()
 
-    return { counter, incrementCounter, logo };
+    return { counter, incrementCounter, logo }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-
 #page-2 {
   .counter {
     margin-bottom: 20px;
   }
 }
-
 </style>

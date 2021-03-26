@@ -1,13 +1,13 @@
-const path = require("path");
-const { VueLoaderPlugin } = require("vue-loader");
-const TerserPlugin = require("terser-webpack-plugin");
+const path = require('path')
+const { VueLoaderPlugin } = require('vue-loader')
+const TerserPlugin = require('terser-webpack-plugin')
 
 let optimization = {
   minimizer: [
     new TerserPlugin({
       terserOptions: {
         mangle: {
-          reserved: ["$", "exports", "require"],
+          reserved: ['$', 'exports', 'require'],
         },
         output: {
           comments: false,
@@ -19,43 +19,41 @@ let optimization = {
       sourceMap: true,
     }),
   ],
-};
+}
 
-module.exports = env => {
-  const isProd = JSON.parse(env.production);
-  
+module.exports = (env) => {
+  const isProd = JSON.parse(env.production)
+
   return {
-    mode: isProd ? "production" : "development",
-    devtool: isProd ? "source-map" : "eval-source-map",
-    entry: path.resolve(__dirname, "src/index.js"),
+    mode: isProd ? 'production' : 'development',
+    devtool: isProd ? 'source-map' : 'eval-source-map',
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-      path: path.resolve(__dirname, "./dist"),
-      publicPath: "/dist/",
-      filename: "[name].js",
+      path: path.resolve(__dirname, './dist'),
+      publicPath: '/dist/',
+      filename: '[name].js',
     },
     module: {
       rules: [
         {
           test: /\.(css|sass|scss)$/,
-          include: [
-            path.resolve(__dirname, "./src"),
-          ],
+          include: [path.resolve(__dirname, './src')],
           use: [
-            "vue-style-loader",
+            'vue-style-loader',
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 esModule: false,
-              }
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                parser: "postcss-scss",
               },
             },
             {
-              loader: "sass-loader",
+              loader: 'postcss-loader',
+              options: {
+                parser: 'postcss-scss',
+              },
+            },
+            {
+              loader: 'sass-loader',
               options: {
                 implementation: require('sass'),
               },
@@ -64,34 +62,28 @@ module.exports = env => {
         },
         {
           test: /\.vue$/,
-          include: [
-            path.resolve(__dirname, "./src")
-          ],
-          use: ["vue-loader"],
+          include: [path.resolve(__dirname, './src')],
+          use: ['vue-loader'],
         },
         {
           test: /\.js$/,
-          include: [
-            path.resolve(__dirname, "./src"),
-          ],
-          use: ["babel-loader"],
+          include: [path.resolve(__dirname, './src')],
+          use: ['babel-loader'],
         },
         {
           test: /\.(jpg)$/,
-          use: ['file-loader']
-        }
+          use: ['file-loader'],
+        },
       ],
     },
-    plugins: [
-      new VueLoaderPlugin(),
-    ],
+    plugins: [new VueLoaderPlugin()],
     optimization: isProd ? optimization : {},
     devServer: {
       hot: true,
-      stats: "minimal",
+      stats: 'minimal',
       contentBase: path.resolve(__dirname),
       overlay: true,
       historyApiFallback: true, // This is needed so webpack dev server falls back to index.html when visiting other routes
     },
-  };
-};
+  }
+}

@@ -7,15 +7,15 @@ export const router = createRouter({
     {
       path: '/',
       name: 'page1',
-      component: Page1
+      component: Page1,
     },
     {
       path: '/page2',
       name: 'page2',
       component: () =>
-        import(/* webpackChunkName: "Page2" */ './pages/Page2.vue')
-    }
-  ]
+        import(/* webpackChunkName: "Page2" */ './pages/Page2.vue'),
+    },
+  ],
 })
 
 router.beforeEach((to, from, next) => {
